@@ -1,0 +1,42 @@
+    public GameObject SpawningObject;
+
+    int number = 0;
+
+    int howManyToSpawn = 0;
+
+    string[] levelRows = File.ReadAllLines("C:\\Users\\alexander.nilsson4\\Documents\\Unity\\Node\\GUIText.txt");
+
+    private void Start()
+    {
+        
+        foreach (string row in levelRows)
+        {
+
+            while(true) 
+            {
+                if(number.ToString() == row)
+                {
+                    Debug.Log(row);
+                    Debug.Log(number);
+
+                    while (true)
+                    {
+                        Instantiate(SpawningObject);
+                        howManyToSpawn++;
+
+                        if(howManyToSpawn == number)
+                        {
+                            break;
+                        }
+                    }
+
+                    break;
+                }
+                else
+                {
+                    number++;
+                }
+            }
+
+        }
+    }
